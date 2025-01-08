@@ -79,4 +79,12 @@ class Auth extends BaseController
         // Processar recuperação
         return $this->response->setJSON(['success' => true]);
     }
+
+    public function senha() {
+        $userModel = new UserModel();
+        
+        $hashedPassword = $userModel->hashPassword('admin2025');
+
+        echo $hashedPassword;
+    }
 }

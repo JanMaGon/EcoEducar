@@ -1,14 +1,26 @@
 <?php 
 namespace App\Controllers;
 
+use \App\Models\PostModel;
+
 class Dashboard extends BaseController
 {
     public function index()
     {
-        // Você pode passar dados para as views se necessário
+        // passar dados para as views se necessário
+        $session = session();
+        $postModel = new PostModel();
+        // Busca os últimos 10 posts
+        $posts = $postModel->orderBy('created_at', 'DESC')
+                          ->limit(10)
+                          ->findAll();
         $data = [
             'title' => 'Dashboard',
-            // outros dados...
+            'user' => [
+                'role' => $session->get('role'),
+                'name' => $session->get('name')
+            ],
+            'posts' => $posts
         ];
 
         // Carrega as views em ordem, passando os dados para cada uma

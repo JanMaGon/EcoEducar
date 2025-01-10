@@ -80,6 +80,13 @@ class Auth extends BaseController
         return $this->response->setJSON(['success' => true]);
     }
 
+    public function logout() {
+        $session = session();
+        $session->destroy();
+    
+        return redirect()->to(base_url('login'))->with('message', 'Logout realizado com sucesso');
+    }
+
     public function senha() {
         $userModel = new UserModel();
         

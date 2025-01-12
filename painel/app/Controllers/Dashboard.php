@@ -5,6 +5,14 @@ use \App\Models\PostModel;
 
 class Dashboard extends BaseController
 {
+    public function __construct()
+    {
+        // Verifica se o usuário está logado
+        if (!session()->get('user_id')) {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+    }
+
     public function index()
     {
         // passar dados para as views se necessário

@@ -33,7 +33,6 @@ class PostModel extends Model
     protected $validationRules = [
         'title' => 'required|min_length[3]|max_length[255]',
         'content' => 'required',
-        'cover_type' => 'required|in_list[image,video]',
         'author_name' => 'required|min_length[3]|max_length[100]'
     ];
     

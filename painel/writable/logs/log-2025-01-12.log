@@ -1,0 +1,46 @@
+CRITICAL - 2025-01-12 01:42:01 --> Error: Call to a member function isValid() on array
+[Method: POST, Route: posts/create-post]
+in APPPATH\Controllers\Posts.php on line 169.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Posts->store()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Posts))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-12 01:43:43 --> Error: Call to a member function isValid() on array
+[Method: POST, Route: posts/create-post]
+in APPPATH\Controllers\Posts.php on line 170.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Posts->store()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Posts))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-12 01:44:57 --> Error: Call to a member function isValid() on array
+[Method: POST, Route: posts/create-post]
+in APPPATH\Controllers\Posts.php on line 171.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Posts->store()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Posts))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-12 01:57:09 --> Error: Call to a member function getError() on array
+[Method: POST, Route: posts/create-post]
+in APPPATH\Controllers\Posts.php on line 172.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Posts->store()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Posts))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-12 02:08:48 --> ErrorException: Undefined variable $galleryFiles
+[Method: POST, Route: posts/create-post]
+in APPPATH\Controllers\Posts.php on line 176.
+ 1 APPPATH\Controllers\Posts.php(176): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $galleryFiles', 'C:\\wamp64\\www\\ecoeducar\\painel\\app\\Controllers\\Posts.php', 176)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Posts->store()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Posts))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

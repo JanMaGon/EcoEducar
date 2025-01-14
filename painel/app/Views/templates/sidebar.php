@@ -24,6 +24,13 @@
                                 <span class="ms-1 d-none d-sm-inline">Usuários</span>
                             </a>
                         </li>
+                        <?php elseif ($user['role'] === 'user'):?>
+                        <li>
+                            <a href="<?= base_url('my-profile')?>" class="nav-link">
+                                <i class="bi bi-people"></i>
+                                <span class="ms-1 d-none d-sm-inline">Meu Perfil</span>
+                            </a>
+                        </li>
                         <?php endif; ?>
                         <li>
                             <a href="<?= base_url('logout') ?>" class="nav-link">

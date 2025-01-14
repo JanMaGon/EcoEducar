@@ -7,8 +7,9 @@ class Dashboard extends BaseController
 {
     public function __construct()
     {
+        $session = session();
         // Verifica se o usuário está logado
-        if (!session()->get('user_id')) {
+        if (!$session->get('user_id')) {
             return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
         }
     }

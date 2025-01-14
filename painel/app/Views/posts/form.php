@@ -76,10 +76,11 @@
                                 </div>
 
                                 <div id="coverImageInput" class="mt-3 <?= (isset($post) && $post['cover_type'] == 'image') ? '' : 'd-none' ?>">
-                                    <input type="file" class="form-control" name="cover_image" accept="image/*">
+                                    <input type="file" class="form-control" name="cover_image" accept=".jpg, .png, .gif" data-max-size="2145728">
+                                    <div class="invalid-feedback"></div>
                                     <?php if(isset($post) && $post['cover_type'] == 'image'): ?>
                                         <div class="mt-2">
-                                            <img src="<?= base_url('assets/image/posts/covers/' . $post['cover_content']) ?>" class="img-thumbnail" style="max-width: 200px">
+                                            <img src="<?php echo 'http://localhost/ecoeducar/assets/image/posts/covers/' . $post['cover_content']; ?>" class="img-thumbnail" style="max-width: 200px">
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -98,21 +99,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Galeria de Imagens</h5>
                             <div class="mb-3">
-                                <input id="gallery-upload" type="file" name="gallery[]" multiple class="file-loading" accept="image/*">
-                            </div>
-                            <div id="gallery-preview" class="row g-2 mt-2">
-                                <?php if(isset($gallery)): ?>
-                                    <?php foreach($gallery as $image): ?>
-                                        <div class="col-6 gallery-item" data-id="<?= $image['id'] ?>">
-                                            <div class="position-relative">
-                                                <img src="<?= base_url('assets/image/posts/gallery/' . $image['image_name']) ?>" class="img-thumbnail">
-                                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 remove-gallery-image">
-                                                    <i class="bi bi-x"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
+                                <input id="gallery-upload" type="file" name="gallery[]" multiple class="file-loading" accept="image/*">                                
                             </div>
                         </div>
                     </div>

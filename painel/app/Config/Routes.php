@@ -23,5 +23,16 @@ $routes->get('/posts/create', 'Posts::create');
 $routes->add('/posts/create-post', 'Posts::store');
 $routes->get('/posts/edit/(:num)', 'Posts::edit/$1');
 $routes->post('/posts/update/(:num)', 'Posts::update/$1');
-$routes->post('/posts/upload-gallery', 'Posts::uploadGallery');
+$routes->post('/posts/upload-gallery/(:num)', 'Posts::uploadGallery/$1');
 $routes->post('/posts/remove-gallery-image/(:num)', 'Posts::removeGalleryImage/$1');
+
+$routes->get('/users', 'Users::index');
+$routes->get('/users/trash', 'Users::trash');
+$routes->get('/users/delete/(:num)', 'Users::delete/$1');
+$routes->get('/users/forceDelete/(:num)', 'Users::forceDelete/$1');
+$routes->get('/users/restore/(:num)', 'Users::restore/$1');
+$routes->get('/users/create', 'Users::create');
+$routes->add('/users/create-user', 'Users::store');
+$routes->get('/my-profile', 'Users::my_profile');
+$routes->get('/users/edit/(:num)', 'Users::edit/$1');
+$routes->post('/users/update/(:num)', 'Users::update/$1');

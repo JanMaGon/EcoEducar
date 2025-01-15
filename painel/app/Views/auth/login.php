@@ -30,11 +30,13 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary w-100 mb-3">Entrar</button>
+                            <!--
                             <div class="text-center">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#recoveryModal">
                                     Esqueci minha senha
                                 </a>
                             </div>
+                            -->
                         </form>
                     </div>
                 </div>
@@ -43,6 +45,7 @@
     </div>
 
     <!-- Modal Recuperação de Senha -->
+    <!--
     <div class="modal fade" id="recoveryModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -65,7 +68,7 @@
             </div>
         </div>
     </div>
-
+    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url('assets/js/login.js') ?>"></script>
 </body>

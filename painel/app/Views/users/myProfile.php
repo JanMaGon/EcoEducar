@@ -1,7 +1,7 @@
 <div class="col py-3">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2><?= isset($painel_user) ? 'Editar Usuário' : 'Novo Usuário' ?></h2>
+            <h2>Meu Perfil</h2>
         </div>
         
         <?php if(session()->has('error')): ?>
@@ -18,7 +18,7 @@
             </div>
         <?php endif; ?>
 
-        <form id="userForm" action="<?= isset($painel_user) ? base_url('users/update/'.$painel_user['id']) : base_url('users/create-user') ?>" method="POST" class="needs-validation" novalidate>
+        <form id="userForm" action="<?= base_url('users/update/'.$painel_user['id']) ?>" method="POST" class="needs-validation" novalidate>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card mb-4">
@@ -64,39 +64,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label class="form-label">Tipo de usuário</label>                                
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="role" id="user" value="user" <?= (isset($painel_user) && $painel_user['role'] == 'user') ? 'checked' : 'checked' ?>>
-                                    <label class="form-check-label" for="user">
-                                        User (gerencia seu perfil e seus posts criados)
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="role" id="admin" value="admin" <?= (isset($painel_user) && $painel_user['role'] == 'admin') ? 'checked' : '' ?>>
-                                    <label class="form-check-label" for="admin">
-                                        Admin (permissão total)
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>                
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-grid">
-                        <?php 
-                            if (isset($painel_user)):
-                                echo '<input type="hidden" name="return" value="adm">';
-                            endif;
-                        ?>
+                        <input type="hidden" name="return" value="myp">
                         <button type="submit" class="btn btn-primary">
-                            <?= isset($painel_user) ? 'Atualizar informações do ' : 'Criar' ?> Usuário
+                            Atualizar informações do meu perfil
                         </button>
                     </div>
                 </div>
@@ -126,7 +101,7 @@
                             </div>                                                        
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="return_pass" value="adm">
+                            <input type="hidden" name="return_pass" value="myp">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary">Alterar senha</button>
                         </div>

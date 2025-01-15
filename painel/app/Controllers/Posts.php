@@ -362,8 +362,7 @@ class Posts extends BaseController
     {
         $session = session();
         $post = $this->postModel->onlyDeleted()->find($id);
-        var_dump($post);
-        
+                
         // Verifica permissão
         if (!$post || ($session->get('role') !== 'admin' && $post['user_id'] !== $session->get('id'))) {
             return redirect()->to(base_url('posts/trash'))->with('error', 'Acesso negado');

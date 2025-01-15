@@ -14,8 +14,10 @@ class UserModel extends Model
         'email',
         'password',
         'role',
+        'deleted_at'
     ];
     protected $useTimestamps = true; // Habilita created_at e updated_at
+    protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
     protected $deletedField = 'deleted_at'; // Campo usado para soft delete

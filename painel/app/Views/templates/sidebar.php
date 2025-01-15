@@ -6,7 +6,7 @@
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
-                            <a href="<?= base_url()?>" class="nav-link active">
+                            <a href="<?= base_url('dashboard')?>" class="nav-link active">
                                 <i class="bi bi-house"></i>
                                 <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
@@ -26,7 +26,7 @@
                         </li>
                         <?php elseif ($user['role'] === 'user'):?>
                         <li>
-                            <a href="<?= base_url('my-profile')?>" class="nav-link">
+                            <a href="<?= base_url('users/my-profile/'.$user['id'])?>" class="nav-link">
                                 <i class="bi bi-people"></i>
                                 <span class="ms-1 d-none d-sm-inline">Meu Perfil</span>
                             </a>

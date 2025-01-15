@@ -17,13 +17,12 @@
 
     <script>
         $(document).ready(function() {
-            // Initialize CKEditor
+                        // Initialize CKEditor
             ClassicEditor
                 .create(document.querySelector('#content'))
                 .catch(error => {
                     console.error(error);
-                });
-
+                });           
             // Handle cover type selection
             $('input[name="cover_type"]').on('change', function() {
                 $('#coverImageInput').addClass('d-none');
@@ -121,8 +120,8 @@
                 }
             });
 
-            // Form validation - user
-            $('#userForm').on('submit', function(event) {
+            // Form validation - user and password
+            $('#userForm, #userFormPassword').on('submit', function(event) {
                 console.log('Formulário enviado');
                 if (!this.checkValidity()) {
                     event.preventDefault();

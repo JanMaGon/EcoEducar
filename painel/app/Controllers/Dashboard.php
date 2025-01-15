@@ -27,7 +27,8 @@ class Dashboard extends BaseController
             'title' => 'Dashboard',
             'user' => [
                 'role' => $session->get('role'),
-                'name' => $session->get('name')
+                'name' => $session->get('name'),
+                'id' => $session->get('user_id')
             ],
             'posts' => $posts
         ];
@@ -38,4 +39,5 @@ class Dashboard extends BaseController
              . view('dashboard/index', $data)
              . view('templates/footer', $data);
     }
+    
 }

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
     const recoveryForm = document.getElementById('recoveryForm');
     const baseUrl = "http://localhost/ecoeducar/painel";
+    //const baseUrl = "https://ecoeducar.app.br/painel";
 
     // Função para mostrar mensagens
     const showMessage = (message, type = 'danger') => {

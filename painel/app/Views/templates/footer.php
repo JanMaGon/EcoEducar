@@ -17,7 +17,7 @@
 
     <script>
         $(document).ready(function() {
-                        // Initialize CKEditor
+            // Initialize CKEditor
             ClassicEditor
                 .create(document.querySelector('#content'))
                 .catch(error => {
@@ -34,7 +34,14 @@
                     $('#coverVideoInput').removeClass('d-none');
                 }
             });
-            <?php if (isset($post['id'])){ $post_id = $post['id']; } else { $post_id = 0;} ?>
+            <?php 
+                if (isset($post['id'])){ $post_id = $post['id']; } else { $post_id = 0;}
+                
+                $url_img = 'http://localhost/ecoeducar/assets/image/posts/gallery/';
+                //$url_img  = 'https://ecoeducar.app.br/assets/image/posts/gallery/';
+                $doc_root = 'C:/wamp64/www/ecoeducar/public/assets/image/posts/gallery/'; 
+                //$doc_root = '/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/gallery/'; 
+            ?>
             // Inicializar o fileinput
             $("#gallery-upload").fileinput({
                 uploadUrl: '<?= base_url('posts/upload-gallery/'.$post_id) ?>', // URL para upload
@@ -50,7 +57,7 @@
                 initialPreview: [
                     <?php if(isset($gallery) && !empty($gallery)): ?>
                         <?php foreach($gallery as $image): ?>
-                            "<?php echo 'http://localhost/ecoeducar/assets/image/posts/gallery/' . $image['image_name']; ?>",
+                            "<?php echo $url_img . $image['image_name']; ?>",
                         <?php endforeach; ?>
                     <?php endif; ?>
                 ],
@@ -58,7 +65,7 @@
                     <?php if(isset($gallery) && !empty($gallery)): ?>
                         <?php foreach($gallery as $image): ?>
                             {caption: "<?= $image['image_name'] ?>", 
-                                size: <?= filesize('C:/wamp64/www/ecoeducar/public/assets/image/posts/gallery/' . $image['image_name']) ?>, 
+                                size: <?= filesize($doc_root . $image['image_name']) ?>, 
                                 key: <?= $image['id'] ?>,
                                 url: "<?= base_url('posts/remove-gallery-image/'.$image['id']) ?>", // URL para exclusão
                             },

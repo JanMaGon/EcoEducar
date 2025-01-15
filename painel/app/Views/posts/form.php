@@ -80,7 +80,11 @@
                                     <div class="invalid-feedback"></div>
                                     <?php if(isset($post) && $post['cover_type'] == 'image'): ?>
                                         <div class="mt-2">
-                                            <img src="<?php echo 'http://localhost/ecoeducar/assets/image/posts/covers/' . $post['cover_content']; ?>" class="img-thumbnail" style="max-width: 200px">
+                                            <?php 
+                                                $url_img = 'http://localhost/ecoeducar/assets/image/posts/covers/';
+                                                //$url_img  = 'https://ecoeducar.app.br/assets/image/posts/covers/';
+                                            ?>
+                                            <img src="<?php echo $url_img . $post['cover_content']; ?>" class="img-thumbnail" style="max-width: 200px">
                                         </div>
                                     <?php endif; ?>
                                 </div>

@@ -12,17 +12,22 @@ class Users extends BaseController
     {
         $this->userModel = new UserModel();
 
-        $session = session();
-        // Verifica se o usuário está logado
-        if (!$session->get('user_id')) {
-            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
-        }
     }
 
     public function index()
     {
         // passar dados para as views se necessário
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $currentPage = $this->request->getVar('page') ?? 1;
 
         $users = $this->userModel->orderBy('created_at', 'DESC')
@@ -50,6 +55,16 @@ class Users extends BaseController
     public function trash()
     {
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $currentPage = $this->request->getVar('page') ?? 1;
         
         $this->userModel->onlyDeleted();
@@ -79,6 +94,16 @@ class Users extends BaseController
     public function create()
     {
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $data = [
             'title' => 'Novo Usuário',
             'user' => [
@@ -97,6 +122,16 @@ class Users extends BaseController
     public function edit($id)
     {
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $user = $this->userModel->find($id);
                 
         $data = [
@@ -118,6 +153,16 @@ class Users extends BaseController
     public function myProfile($id)
     {
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $user = $this->userModel->find($id);
                 
         $data = [

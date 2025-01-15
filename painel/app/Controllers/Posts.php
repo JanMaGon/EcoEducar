@@ -14,18 +14,22 @@ class Posts extends BaseController
     {
         $this->postModel = new PostModel();
         $this->postGalleryModel = new PostGalleryModel();
-
-        $session = session();
-        // Verifica se o usuário está logado
-        if (!$session->get('user_id')) {
-            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
-        }
     }
 
     public function index()
     {
         // passar dados para as views se necessário
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $currentPage = $this->request->getVar('page') ?? 1;
 
         $posts = $this->postModel->orderBy('created_at', 'DESC')
@@ -53,6 +57,16 @@ class Posts extends BaseController
     public function trash()
     {
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $currentPage = $this->request->getVar('page') ?? 1;
         
         $this->postModel->onlyDeleted();
@@ -86,6 +100,16 @@ class Posts extends BaseController
     public function create()
     {
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $data = [
             'title' => 'Novo Post',
             'user' => [
@@ -104,6 +128,16 @@ class Posts extends BaseController
     public function edit($id)
     {
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $post = $this->postModel->find($id);
         
         // Check permission
@@ -157,6 +191,7 @@ class Posts extends BaseController
             if ($cover->isValid() && !$cover->hasMoved()) {
                 $newName = $cover->getRandomName();
                 $cover->move('C:/wamp64/www/ecoeducar/public/assets/image/posts/covers', $newName);
+                //$cover->move('/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/covers', $newName);
                 $postData['cover_content'] = $newName;
             }
         } else if ($postData['cover_type'] === 'video') {
@@ -177,6 +212,7 @@ class Posts extends BaseController
                     if ($file->isValid() && !$file->hasMoved()) {
                         $newName = $file->getRandomName();
                         $file->move('C:/wamp64/www/ecoeducar/public/assets/image/posts/gallery', $newName);
+                        //$file->move('/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/gallery', $newName);
                         // Associar a imagem ao post usando o ID do post
                         $this->postGalleryModel->insert([
                             'post_id' => $postId,
@@ -221,6 +257,7 @@ class Posts extends BaseController
                 // Remove old cover image if exists
                 if ($post['cover_type'] === 'image' && $post['cover_content']) {
                     $oldCoverPath = 'C:/wamp64/www/ecoeducar/public/assets/image/posts/covers/' . $post['cover_content'];
+                    //$oldCoverPath = '/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/covers/' . $post['cover_content'];
                     if (file_exists($oldCoverPath)) {
                         unlink($oldCoverPath);
                     }
@@ -228,6 +265,7 @@ class Posts extends BaseController
                 
                 $newName = $cover->getRandomName();
                 $cover->move('C:/wamp64/www/ecoeducar/public/assets/image/posts/covers', $newName);
+                //$cover->move('/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/covers', $newName);
                 $postData['cover_content'] = $newName;
             }
         } else if ($postData['cover_type'] === 'video') {
@@ -236,6 +274,7 @@ class Posts extends BaseController
             // Remove old cover image if exists
             if ($post['cover_type'] === 'image' && $post['cover_content']) {
                 $oldCoverPath = 'C:/wamp64/www/ecoeducar/public/assets/image/posts/covers/' . $post['cover_content'];
+                //$oldCoverPath = '/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/covers/' . $post['cover_content'];
                 if (file_exists($oldCoverPath)) {
                     unlink($oldCoverPath);
                 }
@@ -246,6 +285,7 @@ class Posts extends BaseController
             // Remove old cover image if exists
             if ($post['cover_type'] === 'image' && $post['cover_content']) {
                 $oldCoverPath = 'C:/wamp64/www/ecoeducar/public/assets/image/posts/covers/' . $post['cover_content'];
+                //$oldCoverPath = '/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/covers/' . $post['cover_content'];
                 if (file_exists($oldCoverPath)) {
                     unlink($oldCoverPath);
                 }
@@ -284,6 +324,7 @@ class Posts extends BaseController
             if ($file->isValid() && !$file->hasMoved()) {
                 $newName = $file->getRandomName();
                 $file->move('C:/wamp64/www/ecoeducar/public/assets/image/posts/gallery', $newName);
+                //$file->move('/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/gallery', $newName);
                 
                 if ($postId) {
                     $galleryData = [
@@ -300,6 +341,7 @@ class Posts extends BaseController
                     'id' => $imageId,
                     'name' => $newName,
                     'url' => 'http://localhost/ecoeducar/assets/image/posts/gallery/' . $newName
+                    //'url' => 'https://ecoeducar.app.br/assets/image/posts/gallery/' . $newName
                 ];
             }
         }
@@ -331,6 +373,7 @@ class Posts extends BaseController
         
         // Remove physical file
         $imagePath = 'C:/wamp64/www/ecoeducar/public/assets/image/posts/gallery/' . $image['image_name'];
+        //$imagePath = '/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/gallery/' . $image['image_name'];
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }
@@ -371,6 +414,7 @@ class Posts extends BaseController
         if ($post['cover_type'] === 'image') {                       
             if (!empty($post['cover_content'])) {
                 $imagePath = 'C:/wamp64/www/ecoeducar/public/assets/image/posts/covers/' . $post['cover_content'];
+                //$imagePath = '/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/covers/' . $post['cover_content'];
                 if (file_exists($imagePath)) {                   
                     unlink($imagePath);
                 }
@@ -384,6 +428,7 @@ class Posts extends BaseController
             // Remove arquivos físicos
             foreach ($gallery as $item) {
                 $imagePath = 'C:/wamp64/www/ecoeducar/public/assets/image/posts/gallery/' . $item['image_name'];
+                //$imagePath = '/home/storage/6/27/1d/ecoeducar1/public_html/public/assets/image/posts/gallery/' . $item['image_name'];
                 if (file_exists($imagePath)) {
                     unlink($imagePath);
                 }

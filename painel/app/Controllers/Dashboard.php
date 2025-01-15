@@ -5,19 +5,21 @@ use \App\Models\PostModel;
 
 class Dashboard extends BaseController
 {
-    public function __construct()
-    {
-        $session = session();
-        // Verifica se o usuário está logado
-        if (!$session->get('user_id')) {
-            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
-        }
-    }
-
+    
     public function index()
     {
         // passar dados para as views se necessário
         $session = session();
+
+        // Verifica se o usuário está logado
+        if (isset($session) && $session->has('user_id')) {
+            if (!$session->get('user_id')) {
+                return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+            }
+        } else {
+            return redirect()->to(base_url())->with('error', 'Você precisa estar logado para acessar esta página.');
+        }
+
         $postModel = new PostModel();
         // Busca os últimos 10 posts
         $posts = $postModel->orderBy('created_at', 'DESC')

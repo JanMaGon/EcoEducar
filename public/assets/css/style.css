@@ -1,0 +1,149 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Evita espaço extra ao redor da imagem */
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-item {
+    margin-right: 1rem; /* Espaçamento entre os itens */
+}
+
+.navbar-nav .nav-link {
+    color: #1F1F1F; /* Cor padrão do texto */
+    font-size: 0.975rem; 
+    text-transform: uppercase; /* Letras maiúsculas */
+    transition: color 0.3s ease; /* Suaviza a transição ao passar o mouse */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #88B44E; /* Cor ao passar o mouse */
+}
+
+.navbar-nav .nav-link.active {
+    color: #88B44E; /* Cor para link ativo */
+}
+
+.navbar-brand img {
+    max-width: 80px;
+}
+
+.banner {
+    margin-top: 3%;
+}
+
+.about-section {
+    background: #fff;
+}
+
+.about-section h2 {
+    color: #1F1F1F;
+    font-weight: bold;
+}
+
+.about-section h4 {
+    color: #1F1F1F;
+    font-weight: bold;
+}
+
+.about-section p {
+    font-size: 1rem;
+    color: #1F1F1F;
+}
+
+.about-section .container {
+    background-image: url('http://localhost/ecoeducar/assets/image/descarte-responsavel.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a área da div */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    border-radius: 8px; /* Adiciona bordas arredondadas (opcional) */
+    padding: 2rem; /* Ajusta o espaçamento interno */
+    min-height: 550px;
+}
+
+.about-section-text {
+    padding-top: 13%;
+    padding-left: 15px;
+}
+
+.blog-section {
+    background: #F5F8F2;
+}
+
+.blog-section .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.blog-section h2 {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.education-section {
+    background: #fff;
+}
+
+.education-section h2 {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.education-section p {
+    font-size: 1rem;
+    color: #555;
+}
+
+footer {
+    background: #2e7d32;
+    color: #fff;
+}
+
+
+.btn-custom {
+    background-color: #88B44E; /* Cor de fundo padrão */
+    color: #fff; /* Cor do texto */
+    border: 1px solid #88B44E; /* Borda da mesma cor */
+    border-radius: 50px; /* Bordas arredondadas */
+    padding: 0.575rem 0.95rem; /* Espaçamento interno */
+    text-align: center;
+    font-size: 1rem; /* Tamanho da fonte */
+    text-decoration: none; /* Remove o sublinhado */
+    display: inline-block;
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+.btn-custom:hover {
+    background-color: #A1C77F; /* Cor um pouco mais clara no hover */
+    border-color: #A1C77F; /* Cor da borda no hover */
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .blog-section .card {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,28 @@
+CRITICAL - 2025-01-18 00:22:51 --> TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given
+[Method: GET, Route: blog/post/26/teste-post-sem-capa]
+in APPPATH\Views\blog\post.php on line 9.
+ 1 APPPATH\Views\blog\post.php(9): date('dd/mm/Y', '2025-01-17 23:13:26')
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\ecoeducar\\app\\Views\\blog\\post.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('blog/post', [], true)
+ 5 APPPATH\Controllers\Blog.php(49): view('blog/post', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Blog->post('26')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-18 00:23:10 --> TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given
+[Method: GET, Route: blog/post/26/teste-post-sem-capa]
+in APPPATH\Views\blog\post.php on line 9.
+ 1 APPPATH\Views\blog\post.php(9): date('dd/mm/Y', '2025-01-17 23:13:26')
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\wamp64\\www\\ecoeducar\\app\\Views\\blog\\post.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('blog/post', [], true)
+ 5 APPPATH\Controllers\Blog.php(49): view('blog/post', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Blog->post('26')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -27,9 +27,15 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
-        'database'     => '',
+        'username'     => 'root',
+        'password'     => 'root',
+        'database'     => 'ecoeducar',        
+        /*
+        'hostname'     => 'ecoeducar.vpscronos0670.mysql.dbaas.com.br',
+        'username'     => 'ecoeducar',
+        'password'     => 'bdEco2025educ#',
+        'database'     => 'ecoeducar',
+        */
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,

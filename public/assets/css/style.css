@@ -62,7 +62,8 @@ img {
 }
 
 .about-section .container {
-    background-image: url('http://localhost/ecoeducar/assets/image/descarte-responsavel.png'); /* Substitua pelo caminho da sua imagem */
+    background-image: url('https://ecoeducar.app.br/assets/image/descarte-responsavel.png');  
+    /*background-image: url('http://localhost/ecoeducar/assets/image/descarte-responsavel.png');*/
     background-size: cover; /* Faz a imagem cobrir toda a área da div */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição da imagem */
@@ -207,6 +208,21 @@ footer {
     font-size: 0.75rem;    
 }
 
+/* Estilo para as thumbs */
+.img-thumbnail {
+    transition: transform 0.2s ease-in-out;
+}
+
+.img-thumbnail:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Estilo para o Lightbox */
+.lightbox-overlay {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
 .btn-lg-square {
     width: 48px;
     height: 48px;
@@ -263,6 +279,7 @@ footer {
     }
 
     .about-section .container {
-        background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('http://localhost/ecoeducar/assets/image/descarte-responsavel.png');
+        background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://ecoeducar.app.br/assets/image/descarte-responsavel.png');
+        /* background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('http://localhost/ecoeducar/assets/image/descarte-responsavel.png');*/
     }
 }
